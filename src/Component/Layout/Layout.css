@@ -1,0 +1,41 @@
+span {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-evenly;
+}
+
+
+.home {
+    height: 80px;
+    background: #52d5d0;
+   justify-content: space-around;
+    align-items: center;
+    position: relative;
+
+}
+.click {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    font-size: 35px;
+    cursor: pointer;
+}
+
+
+.user {
+    border-radius: 50%;
+        height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+}

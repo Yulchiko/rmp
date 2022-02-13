@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect} from 'react';
+import { useDispatch } from 'react-redux';
+import {Route, Routes } from 'react-router-dom';
 
-function App() {
+import Layout from "./Component/Layout/Layout";
+import MoviesPage from "./Pages/MoviesPage/MoviesPage";
+import SingleMoviePage from "./Pages/SingleMoviePage/SingleMoviePage";
+
+import './App.css';
+import {getAllGenres} from "./Slice/Genres.slice/Genres.slice";
+
+export default function App () {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllGenres())
+  },[]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="App">
+      <Routes>
+        <Route path="/" element={<Layout/>}>
+          <Route path="movies" element={<MoviesPage/>} />
+          <Route path="movies/:id" element={<SingleMoviePage/>}/>
+          <Route path="movies/page-:page" element={<MoviesPage/>}/>
+        </Route>
+      </Routes>
+      </div>
   );
 }
 
-export default App;
